@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặng Nguyễn Ngọc Linh - Huấn luyện cầu lông</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        header {
+            background-color: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .content {
+            margin-bottom: 40px;
+        }
+        .match-setup, .analysis {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #0073e6;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #005bb5;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Đặng Nguyễn Ngọc Linh</h1>
+        <p>Email: linhdang1234567891011@gmail.com</p>
+    </header>
+    <main>
+        <section class="content">
+            <h2 class="section-title">Mô phỏng trận đấu cầu lông</h2>
+            <div class="match-setup">
+                <h3>Cài đặt trận đấu</h3>
+                <div class="form-group">
+                    <label for="player1">Người chơi 1:</label>
+                    <input type="text" id="player1" name="player1" placeholder="Tên người chơi 1">
+                </div>
+                <div class="form-group">
+                    <label for="player2">Người chơi 2:</label>
+                    <input type="text" id="player2" name="player2" placeholder="Tên người chơi 2">
+                </div>
+                <div class="form-group">
+                    <label for="style1">Lối đánh người chơi 1:</label>
+                    <select id="style1" name="style1">
+                        <option value="tấn công">Tấn công</option>
+                        <option value="phòng thủ">Phòng thủ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="style2">Lối đánh người chơi 2:</label>
+                    <select id="style2" name="style2">
+                        <option value="tấn công">Tấn công</option>
+                        <option value="phòng thủ">Phòng thủ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="simulateMatch()">Bắt đầu trận đấu</button>
+                </div>
+            </div>
+            <div class="analysis">
+                <h3>Phân tích trận đấu</h3>
+                <div id="analysisResult">
+                    <!-- Kết quả phân tích sẽ hiển thị ở đây -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Đặng Nguyễn Ngọc Linh. All rights reserved.</p>
+    </footer>
+    <script>
+        function simulateMatch() {
+            var player1 = document.getElementById('player1').value;
+            var player2 = document.getElementById('player2').value;
+            var style1 = document.getElementById('style1').value;
+            var style2 = document.getElementById('style2').value;
+
+            var result = "Trận đấu giữa " + player1 + " (Lối đánh: " + style1 + ") và " + player2 + " (Lối đánh: " + style2 + ") đang diễn ra...<br>";
+
+            // Giả sử phân tích tình huống đơn giản
+            if (style1 === 'tấn công' && style2 === 'phòng thủ') {
+                result += player1 + " có lợi thế tấn công, hãy tiếp tục áp lực để giành điểm!";
+            } else if (style1 === 'phòng thủ' && style2 === 'tấn công') {
+                result += player2 + " có lợi thế tấn công, hãy cẩn thận và tìm cơ hội phản công!";
+            } else {
+                result += "Hai người chơi đang có lối đánh cân bằng, hãy tập trung vào chiến thuật để giành điểm!";
+            }
+
+            document.getElementById('analysisResult').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
